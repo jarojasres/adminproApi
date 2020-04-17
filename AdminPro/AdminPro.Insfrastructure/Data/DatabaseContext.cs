@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using AdminPro.Core.Entities;
 
 namespace AdminPro.Infrastructure.Data
 {
@@ -9,7 +10,10 @@ namespace AdminPro.Infrastructure.Data
         {
             Database.EnsureCreated();
         }
-        
+
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Hospital> Hospitals { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdminPro.Api.Configurations.Extensions;
+using AdminPro.Api.Interfaces;
+using AdminPro.Api.Services;
 using AdminPro.Core.Interfaces;
 using AdminPro.Infrastructure.Data;
 using AutoMapper;
@@ -78,6 +81,7 @@ namespace AdminPro.Api
             services.AddDbContext<DatabaseContext>(o => { o.UseSqlServer(connectionString); });
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+            services.AddScoped<IUserViewModelService, UserViewModelService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
@@ -103,6 +107,9 @@ namespace AdminPro.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseNewUserMiddleware();
+
         }
     }
 }
