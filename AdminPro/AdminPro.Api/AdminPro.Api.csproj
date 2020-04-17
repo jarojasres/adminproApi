@@ -14,9 +14,5 @@
     <ProjectReference Include="..\AdminPro.Insfrastructure\AdminPro.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
 
 </Project>
