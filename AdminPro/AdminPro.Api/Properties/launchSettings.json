@@ -1,0 +1,35 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5693",
+      "sslPort": 44318
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "AdminPro.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings:adminprodb": "Server=(localdb)\\MSSQLLocalDB;Database=AdminproDb;Trusted_Connection=True;",
+        "AzureAdB2C:Instance": "https://jarojasresb2c.b2clogin.com/tfp/",
+        "AzureAdB2C:ClientId": "dda20b98-349c-4bfd-91d1-763589f821c6",
+        "AzureAdB2C:Domain": "jarojasresb2c.onmicrosoft.com",
+        "AzureAdB2C:SignUpSignInPolicyId": "B2C_1_SIGIN_SIGNUP"
+      }
+    }
+  }
+}
