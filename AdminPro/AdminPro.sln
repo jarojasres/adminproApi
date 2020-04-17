@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPro.Core", "AdminPro.Core\AdminPro.Core.csproj", "{000AB45A-38E5-4013-BC2B-BF0E8F81C0A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPro.Infrastructure", "AdminPro.Insfrastructure\AdminPro.Infrastructure.csproj", "{71E50B82-BA56-42A2-B0B6-BE865A96423D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPro.Infrastructure", "AdminPro.Infrastructure\AdminPro.Infrastructure.csproj", "{71E50B82-BA56-42A2-B0B6-BE865A96423D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPro.Api", "AdminPro.Api\AdminPro.Api.csproj", "{F4500EFE-4685-40BD-8DFF-0BB36ED2B7FA}"
 EndProject

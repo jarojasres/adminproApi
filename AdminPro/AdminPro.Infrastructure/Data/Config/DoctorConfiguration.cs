@@ -14,6 +14,11 @@ namespace AdminPro.Infrastructure.Data.Config
             builder.Property(a => a.Name)
                 .HasMaxLength(300)
                 .IsRequired();
+
+            builder.HasOne<User>(s => s.User)
+                .WithMany()
+                .HasForeignKey(s => s.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
