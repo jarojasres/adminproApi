@@ -8,6 +8,7 @@ namespace AdminPro.Api.Interfaces
 {
     public interface IDoctorViewModelService
     {
+        Task<Guid> Create(DoctorViewModel doctorViewModel);
         Task Delete(Guid id);
         Task<IEnumerable<DoctorViewModel>> GetAll();
 

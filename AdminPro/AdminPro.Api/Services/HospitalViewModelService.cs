@@ -21,6 +21,13 @@ namespace AdminPro.Api.Services
             _mapper = mapper;
         }
 
+        public async Task<Guid> Create(HospitalViewModel hospitalViewModel)
+        {
+            var hospital = _mapper.Map<HospitalViewModel, Hospital>(hospitalViewModel);
+            var hospitalDb = await _hospitalRepository.AddAsync(hospital);
+            return hospitalDb.Id;
+        }
+
         public async Task Delete(Guid id)
         {
             var hospital = new Hospital()

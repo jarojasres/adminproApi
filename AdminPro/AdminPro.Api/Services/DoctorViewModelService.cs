@@ -38,15 +38,12 @@ namespace AdminPro.Api.Services
 
         public async Task Update(Guid id, DoctorViewModel doctorViewModel)
         {
-            var doctor = await _doctorRepository.GetByIdAsync(id);
+            var doctor = _mapper.Map<DoctorViewModel, Doctor>(doctorViewModel);
+            doctor.Id = id;
 
-            if (doctor != null)
-            {
-                doctor.Id = id;
-                doctor = _mapper.Map<DoctorViewModel, Doctor>(doctorViewModel);
-                
-                await _doctorRepository.UpdateAsync(doctor);
-            }
+
+            await _doctorRepository.UpdateAsync(doctor);
+
         }
 
         public async Task<bool> ExistsDoctor(Guid id)
@@ -59,10 +56,17 @@ namespace AdminPro.Api.Services
         {
             var doctor = new Doctor
             {
-                Id =  id
+                Id = id
             };
 
             await _doctorRepository.DeleteAsync(doctor);
+        }
+
+        public async Task<Guid> Create(DoctorViewModel doctorViewModel)
+        {
+            var doctor = _mapper.Map<DoctorViewModel, Doctor>(doctorViewModel);
+            var doctorDb = await _doctorRepository.AddAsync(doctor);
+            return doctorDb.Id;
         }
     }
 }

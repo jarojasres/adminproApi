@@ -82,6 +82,8 @@ namespace AdminPro.Api
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
             services.AddScoped<IUserViewModelService, UserViewModelService>();
+            services.AddScoped<IDoctorViewModelService, DoctorViewModelService>();
+            services.AddScoped<IHospitalViewModelService, HospitalViewModelService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
@@ -102,13 +104,13 @@ namespace AdminPro.Api
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseNewUserMiddleware();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
-            app.UseNewUserMiddleware();
+
 
         }
     }
