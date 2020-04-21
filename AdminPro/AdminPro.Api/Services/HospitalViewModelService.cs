@@ -37,18 +37,18 @@ namespace AdminPro.Api.Services
             await _hospitalRepository.DeleteAsync(hospital);
         }
 
-        public async Task<IEnumerable<HospitalViewModel>> GetAll()
+        public async Task<IEnumerable<HospitalInformationViewModel>> GetAll()
         {
-            var hospitals = await _hospitalRepository.ListAllAsync();
-            var hospitalViewModels = _mapper.Map<IEnumerable<Hospital>, IEnumerable<HospitalViewModel>>(hospitals);
+            var hospitals = await _hospitalRepository.ListAllAsync(x => x.User);
+            var hospitalViewModels = _mapper.Map<IEnumerable<Hospital>, IEnumerable<HospitalInformationViewModel>>(hospitals);
 
             return hospitalViewModels;
         }
 
-        public async Task<HospitalViewModel> GetById(Guid id)
+        public async Task<HospitalInformationViewModel> GetById(Guid id)
         {
             var hospital = await _hospitalRepository.GetByIdAsync(id);
-            var hospitalViewModel = _mapper.Map<Hospital, HospitalViewModel>(hospital);
+            var hospitalViewModel = _mapper.Map<Hospital, HospitalInformationViewModel>(hospital);
 
             return hospitalViewModel;
         }

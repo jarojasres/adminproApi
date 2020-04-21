@@ -13,6 +13,8 @@ namespace AdminPro.Api.Configurations.Profiles
         public UserProfile()
         {
             CreateMap<User, UserViewModel>();
+            CreateMap<User, UserInformationViewModel>();
+
         }
     }
 }

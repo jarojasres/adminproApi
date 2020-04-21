@@ -13,6 +13,7 @@ namespace AdminPro.Api.Configurations.Profiles
         public DoctorProfile()
         {
             CreateMap<Doctor, DoctorViewModel>().ReverseMap();
+            CreateMap<Doctor, DoctorInformationViewModel>();
         }
     }
 }

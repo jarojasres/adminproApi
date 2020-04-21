@@ -21,18 +21,18 @@ namespace AdminPro.Api.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<DoctorViewModel>> GetAll()
+        public async Task<IEnumerable<DoctorInformationViewModel>> GetAll()
         {
-            var doctors = await _doctorRepository.ListAllAsync();
-            var doctorsViewModel = _mapper.Map<IEnumerable<DoctorViewModel>>(doctors);
+            var doctors = await _doctorRepository.ListAllAsync(x => x.Hospital,  x => x.User);
+            var doctorsViewModel = _mapper.Map<IEnumerable<DoctorInformationViewModel>>(doctors);
 
             return doctorsViewModel;
         }
 
-        public async Task<DoctorViewModel> GetById(Guid id)
+        public async Task<DoctorInformationViewModel> GetById(Guid id)
         {
-            var user = await _doctorRepository.GetByIdAsync(id);
-            var doctorViewModel = _mapper.Map<DoctorViewModel>(user);
+            var doctors = await _doctorRepository.GetAsync(x => x.Id == id, null, x=> x.User, x => x.Hospital);
+            var doctorViewModel = _mapper.Map<DoctorInformationViewModel>(doctors.FirstOrDefault());
             return doctorViewModel;
         }
 

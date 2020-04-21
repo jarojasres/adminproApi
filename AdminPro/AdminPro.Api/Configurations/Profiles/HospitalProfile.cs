@@ -13,6 +13,10 @@ namespace AdminPro.Api.Configurations.Profiles
         public HospitalProfile()
         {
             CreateMap<Hospital, HospitalViewModel>().ReverseMap();
+            
+            CreateMap<Hospital, HospitalInformationViewModel>();
+            CreateMap<Hospital, AssociatedHospitalViewModel>();
+
         }
     }
 }

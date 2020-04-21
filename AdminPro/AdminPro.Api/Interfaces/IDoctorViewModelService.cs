@@ -10,9 +10,9 @@ namespace AdminPro.Api.Interfaces
     {
         Task<Guid> Create(DoctorViewModel doctorViewModel);
         Task Delete(Guid id);
-        Task<IEnumerable<DoctorViewModel>> GetAll();
+        Task<IEnumerable<DoctorInformationViewModel>> GetAll();
 
-        Task<DoctorViewModel> GetById(Guid id);
+        Task<DoctorInformationViewModel> GetById(Guid id);
 
         Task Update(Guid id, DoctorViewModel doctorViewModel);
 

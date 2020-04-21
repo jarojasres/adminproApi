@@ -19,6 +19,10 @@ namespace AdminPro.Infrastructure.Data.Config
                 .WithMany()
                 .HasForeignKey(s => s.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.Hospital)
+                .WithMany()
+                .HasForeignKey(s => s.HospitalId);
         }
     }
 }
